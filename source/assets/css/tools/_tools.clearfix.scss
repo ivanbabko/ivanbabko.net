@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+// ============================================================================
+//
+// CLEARFIX MIXIN
+//
+// ============================================================================
+
+// Mixin to drop micro clearfix into a selector. Further reading:
+// http://www.cssmojo.com/the-very-latest-clearfix-reloaded/
+//
+// .usage {
+//   @include cf;
+// }
+
+@mixin cf() {
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+}

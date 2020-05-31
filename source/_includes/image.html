@@ -1,0 +1,6 @@
+<div class="c-media">
+  <div class="o-ratio  o-ratio--{% if include.ratio %}{{ include.ratio }}{% else %}16:9{% endif %}  {% if include.class %}{{ include.class }}{% endif %}">
+    {% include loading.html color="dark" %}
+    <img class="o-ratio__media  c-media__source  lazyload" {% unless include.zoom %} data-zoom="{% if include.type == 'photo' %}photo{% else %}screenshot{% endif %}" {% endunless %} data-src="{{ include.url }}" alt="">
+  </div>
+</div>

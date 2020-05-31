@@ -1,0 +1,82 @@
+<!-- start /_includes/menu.html -->
+
+
+
+
+<!-- TRIGGER ICON -->
+<a class="c-menu-trigger  js-menu-trigger" href="#">
+  <svg class="o-icon  c-menu-trigger__icon">
+    <use xlink:href="#menu"></use>
+  </svg>
+</a>
+
+
+
+<div class="c-menu-container  js-menu-container">
+
+
+  <!-- CLOSE ICON -->
+  <a class="c-menu-close  js-menu-close" href="#">
+    <svg class="o-icon  c-menu-close__icon">
+      <use xlink:href="#close"></use>
+    </svg>
+  </a>
+
+
+  <!-- MAIN NAV -->
+  <ul class="c-menu">
+    <li class="c-menu__item  {% if page.title_tech == 'Profile' %}is-current{% endif%}">
+      <a class="c-menu__link" href="/">
+        <svg class="o-icon  c-menu__icon"><use xlink:href="#profile"></use></svg>
+        <span class="c-menu__text">Profile</span>
+      </a>
+    </li>
+    <li class="c-menu__item  {% if page.title_tech == 'Design' %}is-current{% endif%}">
+      <a class="c-menu__link" href="/design/">
+        <svg class="o-icon  c-menu__icon"><use xlink:href="#design"></use></svg>
+        <span class="c-menu__text">Design</span>
+      </a>
+    </li>
+    <li class="c-menu__item  {% if page.title_tech == 'Video' %}is-current{% endif%}">
+      <a class="c-menu__link" href="/video/">
+        <svg class="o-icon  c-menu__icon"><use xlink:href="#video"></use></svg>
+        <span class="c-menu__text">Video</span>
+      </a>
+    </li>
+    <li class="c-menu__item  {% if page.title_tech == 'Lab' %}is-current{% endif%}">
+      <a class="c-menu__link" href="/lab/">
+        <svg class="o-icon  c-menu__icon"><use xlink:href="#lab"></use></svg>
+        <span class="c-menu__text">Lab</span>
+      </a>
+    </li>
+  </ul> <!-- /.c-menu -->
+
+
+  {% comment %}
+  <!-- SOCIAL NAV -->
+  <ul class="c-menu--social">
+
+    <li class="c-menu--social__item">
+      <a class="c-menu--social__link" href="https://dribbble.com/ivanbabko">
+        <svg class="o-icon  c-menu--social__icon  dribbble"><use xlink:href="#dribbble"></use></svg>
+      </a>
+    </li>
+    <li class="c-menu--social__item">
+      <a class="c-menu--social__link" href="https://github.com/ivanbabko">
+        <svg class="o-icon  c-menu--social__icon  github"><use xlink:href="#github"></use></svg>
+      </a>
+    </li>
+
+    <li class="c-menu--social__item">
+      <a class="c-menu--social__link" href="https://www.linkedin.com/in/ivanbabko/">
+        <svg class="o-icon  c-menu--social__icon  linkedin"><use xlink:href="#linkedin"></use></svg>
+      </a>
+    </li>
+  </ul> <!-- /.c-menu--social -->
+  {% endcomment %}
+
+
+</div> <!-- /.c-menu-container -->
+
+
+<!-- end /_includes/menu.html -->

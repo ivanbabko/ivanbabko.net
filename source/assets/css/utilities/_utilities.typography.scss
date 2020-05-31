@@ -1,0 +1,69 @@
+/* ==========================================================================
+
+   @TYPOGRAPHY UTILITIES
+
+   ========================================================================== */
+
+
+.u-font-family-primary {font-family: $font-family-primary;}
+.u-font-family-secondary {font-family: $font-family-secondary;}
+.u-font-family-tertiary {font-family: $font-family-tertiary;}
+
+.u-line-height-copy {line-height: $line-height-copy;}
+.u-line-height-title {line-height: $line-height-title;}
+.u-line-height-solid {line-height: $line-height-solid;}
+
+.u-text-left    {text-align: left;}
+.u-text-center  {text-align: center;}
+.u-text-right   {text-align: right;}
+
+.u-font-weight-normal {font-weight: 400}
+.u-font-weight-semibold {font-weight: 600}
+.u-font-weight-bold {font-weight: 700}
+
+
+// Responsive text alignment
+// ============================================================================
+
+// Generate responsive text-align utilities?
+$responsive-text-align: true !default;
+
+
+// Sass map of breakpoints used to generate responsive helpers. E.g.:
+//
+// $text-align-breakpoints: (
+//  'sm': 640px,
+//  'md': 1024px,
+//  'lg': 1280px,
+// );
+
+$text-align-breakpoints: $breakpoints !default;
+
+
+// Separator for the breakpoints suffix in the class name, e.g.:
+//
+// <h2 class="u-text-center@mobile"></h2>
+
+$text-align-breakpoint-separator: $breakpoint-separator !default;
+
+
+// The below loop will generate us a suite of classes like:
+//
+//   .u-text-left@desktop {}
+//   .u-text-center@mobile {}
+
+@if ($responsive-text-align == true) {
+
+  @each $bp-name, $bp-value in $text-align-breakpoints {
+
+    @include mq($from: $bp-name) {
+
+      .u-text-left#{$text-align-breakpoint-separator}#{$bp-name}   {text-align: left;}
+      .u-text-center#{$text-align-breakpoint-separator}#{$bp-name} {text-align: center;}
+      .u-text-right#{$text-align-breakpoint-separator}#{$bp-name}  {text-align: right;}
+
+    }
+
+  }
+
+}

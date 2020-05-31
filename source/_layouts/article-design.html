@@ -1,0 +1,144 @@
+---
+layout: default
+---
+
+<!-- start /_layouts/article-design.html -->
+
+
+
+<!-- PAGE PRELOADER -->
+<div class="c-preloader  js-preloader">
+  {% include loading.html color="dark" %}
+</div> <!-- /.c-preloader -->
+
+
+
+<!-- PAGE WRAPPER -->
+<div class="c-page__wrapper  js-push">
+
+
+
+  <!-- HEADLINE -->
+  <header class="c-headline">
+    <p class="c-headline__caption">{{ page.type }}</p>
+    <h1 class="c-headline__title">{{ page.title }}</h1>
+    <h2 class="c-headline__description">{{ page.description }}</h2>
+  </header> <!-- /.c-headline -->
+
+
+
+  <!-- FEATURE IMAGE -->
+  {% if page.feature %}
+  <div class="c-feature  c-feature--design" {% if page.color %}style="background-color: {{ page.color }}"{% endif %}>
+    <img class="c-feature__image" src="{{ page.feature }}">
+  </div> <!-- /.c-feature -->
+  {% endif %}
+
+
+
+  <!-- INTRO -->
+  {% if page.intro %}
+    <div class="c-intro">
+
+      <div class="o-grid  o-grid--xl">
+
+        <div class="o-grid__item  u-2/3@m">
+
+          {% if page.intro.project %}
+           <h2 class="c-intro__header--primary">Project background</h2>
+           <p class="c-intro__text--primary">{{ page.intro.project }}</p>
+          {% endif %}
+
+          {% if page.intro.role %}
+            <h2 class="c-intro__header--primary">My role</h2>
+            <p class="c-intro__text--primary">{{ page.intro.role }}</p>
+          {% endif %}
+
+        </div> <!-- /.o-grid__item -->
+
+        <div class="o-grid__item  u-1/3@m">
+
+          <div class="c-intro__line"></div>
+
+          {% if page.intro.date %}
+            <h3 class="c-intro__header--secondary">Date</h3>
+            <p class="c-intro__text--secondary">{{ page.intro.date }}</p>
+          {% endif %}
+
+
+          {% if page.intro.involvement %}
+            <h3 class="c-intro__header--secondary">Involvement</h3>
+            <ul class="c-intro__text--secondary">
+              {% for involvement in page.intro.involvement %}
+                <li>{{ involvement }}</li>
+               {% endfor %}
+            </ul>
+          {% endif %}
+
+
+          {% if page.intro.team %}
+            <h3 class="c-intro__header--secondary">Team</h3>
+            <p class="c-intro__text--secondary">{{ page.intro.team }}</p>
+          {% endif %}
+
+        </div> <!-- /.o-grid__item -->
+
+      </div> <!-- /.o-grid -->
+
+    </div> <!-- /.c-intro -->
+  {% endif %}
+
+
+
+
+  <!-- ARTICLE CONTENT -->
+  <article class="c-article">
+
+  {{ content }}
+
+  </article> <!-- /.c-article -->
+
+
+
+
+  <!-- COMING-UP -->
+
+  {% if page.next_in_category %}
+
+    <section class="c-coming-up" {% if page.next_in_category.color %}style="background-color: {{ page.next_in_category.color }}"{% endif %}>
+      <a class="c-coming-up__link" href="{{ page.next_in_category.url }}">
+        <div class="c-coming-up__text">
+          <h4 class="c-coming-up__caption">Coming up next</h4>
+          <h2 class="c-coming-up__title" {% if page.next_in_category.color-text %}style="color: {{ page.next_in_category.color-text }}"{% endif %}>{{ page.next_in_category.title }}</h2>
+          <h3 class="c-coming-up__description">{{ page.next_in_category.description }}</h3>
+        </div> <!-- /.c-coming-up__text -->
+        <img class="c-coming-up__image" src="{{ page.next_in_category.feature }}">
+      </a>
+    </section> <!-- /.c-coming-up -->
+
+  {% else if ! page.next_in_category %}
+
+    {% for post in site.categories['design'] limit:1 %}
+       <section class="c-coming-up" {% if post.color %}style="background-color: {{ post.color }}"{% endif %}>
+        <a class="c-coming-up__link" href="{{ post.url }}">
+          <div class="c-coming-up__text">
+            <h4 class="c-coming-up__caption">Coming up next</h4>
+            <h2 class="c-coming-up__title" {% if post.color-text %}style="color: {{ post.color-text }}"{% endif %}>{{ post.title }}</h2>
+            <h3 class="c-coming-up__description">{{ post.description }}</h3>
+          </div>
+          <img class="c-coming-up__image" src="{{ post.feature }}">
+        </a> <!-- /.c-coming-up__text -->
+      </section> <!-- /.c-coming-up -->
+    {% endfor %}
+
+  {% endif %}
+
+
+
+
+</div> <!-- /.c-page__wrapper -->
+
+
+
+
+<!-- end /_layouts/article-design.html -->

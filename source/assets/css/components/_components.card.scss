@@ -1,0 +1,103 @@
+/* ==========================================================================
+
+   @CARDS
+
+   ========================================================================== */
+
+.c-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: $radius;
+  overflow: hidden;
+  min-height:450px;
+  position: relative;
+  margin-bottom: $spacing-l;
+  transition: $transition;
+
+  &:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translate(0,-1px);
+  }
+
+}
+
+.c-card__link {
+  display: block;
+}
+
+.c-card__hero {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  background-color: #2f3d4b;
+}
+
+.c-card__icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: #ccc;
+  margin-left: $spacing-xs;
+  margin-bottom: $spacing-xs;
+}
+
+.c-card__image {
+  position: absolute;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  z-index: z('bg-cover');
+  transition: $transition;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .c-card--design & {
+    background-position: 20% center;
+    @include mq(s) {
+      background-position: center center;
+    }
+  }
+
+
+}
+
+.c-card__tag {
+  border: 2px solid rgba(0,0,0,0.2);
+  color: rgba(0,0,0,0.3);
+  border-radius: 999px;
+  padding: 2px 10px;
+  display: inline-block;
+  font-size: fs('mini');
+  font-weight: 600;
+  margin-right: $spacing-xs;
+  margin-bottom: $spacing-s;
+}
+
+.c-card__body {
+  padding: $spacing-m;
+  padding-bottom: $spacing;
+  position: relative;
+}
+
+.c-card__caption {
+  font-size: fs('mini');
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: c('black','tertiary');
+  margin-bottom: $spacing-s;
+}
+
+.c-card__title {
+  font-size: fs('h4');
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: c('black', 'base');
+}
+
+.c-card__description {
+  color: c('black', 'secondary');
+  margin-bottom: $spacing;
+}
+

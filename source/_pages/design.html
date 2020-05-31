@@ -1,0 +1,31 @@
+---
+layout: default
+permalink: /design/
+classes: ["c-page--cards"]
+title: "Design"
+title_tech: "Design"
+description: "Selected UX projects"
+---
+
+<!-- start /_pages/page--design.html -->
+
+<div class="o-container  u-padding-l  u-padding-bottom-none">
+
+  <div class="o-grid  o-grid--l">
+
+    <div class="o-grid__item">
+      <h1 class="c-page__header">{{ page.title }}</h1>
+      <p class="c-page__description">{{ page.description }}</p>
+    </div>
+
+    {% for post in site.categories['design'] %}
+      <div class="o-grid__item  u-1/2@m  u-1/3@xl">
+        {% include card.html %}
+      </div> <!-- /.o-grid__item -->
+    {% endfor %}
+
+  </div> <!-- /.o-grid -->
+
+</div> <!-- /.o-container -->
+
+<!-- end /_pages/page--design.html -->

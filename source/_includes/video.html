@@ -1,0 +1,12 @@
+<div class="c-media">
+  <div class="o-ratio  o-ratio--{% if include.ratio %}{{ include.ratio }}{% else %}16:9{% endif %}  {% if include.class %}{{ include.class }}{% endif %}">
+    {% include loading.html color="dark" %}
+    <video class="o-ratio__media  c-media__source  lazyload"  autoplay  loop>
+      <source src="{{ include.url }}.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div> <!-- /.o-ratio -->
+</div> <!-- /.c-media -->
+
+
+

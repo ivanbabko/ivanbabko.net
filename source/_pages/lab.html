@@ -1,0 +1,31 @@
+---
+layout: default
+permalink: /lab/
+classes: ["c-page--cards"]
+title: "Lab"
+title_tech: "Lab"
+description: "My open source experiments with design and code systems"
+---
+
+<!-- start /_pages/page--lab.html -->
+
+<div class="o-container  u-padding-l  u-padding-bottom-none">
+
+  <div class="o-grid  o-grid--l">
+
+    <div class="o-grid__item">
+      <h1 class="c-page__header">{{ page.title }}</h1>
+      <p class="c-page__description">{{ page.description }}</p>
+    </div>
+
+    {% for post in site.categories['lab'] %}
+      <div class="o-grid__item  u-1/2@m  u-1/3@xl">
+        {% include card.html %}
+      </div> <!-- /.o-grid__item -->
+    {% endfor %}
+
+  </div> <!-- /.o-grid -->
+
+</div> <!-- /.o-container -->
+
+<!-- end /_pages/page--lab.html -->

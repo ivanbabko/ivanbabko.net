@@ -1,0 +1,175 @@
+/* ==========================================================================
+
+   @PROFILE PAGE
+
+   ========================================================================== */
+
+
+
+
+
+/* Split screem
+   ========================================================================== */
+
+.c-split {
+
+  @include mq(m) {
+    height: 100%;
+  }
+
+}
+
+
+.c-split__item {
+
+  @include mq(m) {
+    height: 100%;
+    vertical-align: middle;
+  }
+
+}
+
+
+.c-split__item--scroll {
+
+  @include mq(m) {
+    overflow-y: scroll;
+  }
+
+}
+
+
+
+
+/* Photo
+   ========================================================================== */
+
+.c-profile {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+}
+
+.c-profile__image {
+  position: absolute;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  z-index: z('bg-cover');
+  transition: $transition;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.c-profile__caption {
+  position: absolute;
+  z-index: z('bg-cover');
+  bottom: $spacing-xl;
+  left: $spacing-xl;
+}
+
+.c-profile__title {
+  font-size: fs('h1');
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height:1.15;
+  color: rgba(255, 255, 255, 1);
+}
+
+.c-profile__subtitle {
+  font-size: fs('mini');
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+
+/* Skills
+   ========================================================================== */
+
+.c-skills {
+  width: 90%;
+  height: 100%;
+  max-width: 600px;
+
+  @include mq(m) {
+    width: 80%;
+    display:table;
+    max-width: 800px;
+  }
+
+}
+
+.c-skills__inner {
+  @include mq(m) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+
+.c-skills__photo {
+  width: 256px;
+  height: 256px;
+  max-width: none;
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 999px;
+  margin: $spacing-xl auto $spacing;
+  @include mq(m) {
+    display: none;
+  }
+}
+
+.c-skills__header {
+  font-size: fs('h2');
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height:1.15;
+  margin: $spacing-m 0;
+}
+
+.c-skills__intro {
+  font-size: fs('h5');
+  margin-bottom: $spacing-l;
+}
+
+.c-skill {
+  padding-bottom: $spacing-m;
+}
+
+.c-skill__title {
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: $spacing-xs;
+}
+
+.c-skill__description {
+  padding-left: 22px;
+  color: c('black');
+}
+
+.c-skill--design {color:#EE5767;}
+.c-skill--prototyping {color:#007AB8;}
+.c-skill--webdev {color:#EDB431;}
+.c-skill--photovideo {color:#574155;}
+
+.c-icon--external {
+    fill: #ccc;
+    width: 10px;
+    height: 10px;
+    //vertical-align: text-top;
+    margin-left: 4px;
+
+    a:hover & {
+      fill: #fff;
+    }
+}

@@ -1,0 +1,40 @@
+/* ==========================================================================
+
+   @BUTTONS
+
+   ========================================================================== */
+
+.c-btn {
+  display: inline-block;
+  background-color: c('accent');
+  color: c('white');
+  font-size: fs('h4');
+  padding: $spacing-s $spacing-l;
+  margin: 0 auto;
+  border-radius:999px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+
+  &:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translate(0,-1px);
+
+    .c-btn__icon--right {
+      transform: translate(3px,0);
+    }
+
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: translate(0,1px);
+  }
+
+}
+
+
+.c-btn__icon {
+  width:14px;
+  height:14px;
+  transition: $transition;
+}

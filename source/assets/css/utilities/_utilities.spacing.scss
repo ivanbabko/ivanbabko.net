@@ -1,0 +1,171 @@
+/* ==========================================================================
+
+   @SPACING UTILITIES
+
+   ========================================================================== */
+
+/**
+ * Utility classes to put specific spacing values onto elements. For example:
+ *
+ *   .u-margin-top {}
+ *   .u-padding-left-l {}
+ *   .u-margin-right-s {}
+ *   .u-padding {}
+ *   .u-padding-right-none {}
+ *   .u-padding-horizontal-l {}
+ *   .u-padding-vertical-s {}
+ *
+ * Optionally, we can generate responsive variants of each of these classes.
+ *
+ *   <div class="u-margin-bottom-xl  u-margin-bottom-none@mobile">
+ *
+ * This is useful for responsive nudging of the DOM elements right in the markup.
+ *
+ */
+
+ /* stylelint-disable string-quotes */
+
+
+$spacing-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+  '-horizontal': '-left' '-right',
+  '-vertical': '-top' '-bottom',
+) !default;
+
+$spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+$spacing-sizes: (
+  null: $spacing,
+  '-xs': $spacing-xs,
+  '-s': $spacing-s,
+  '-m': $spacing-m,
+  '-l': $spacing-l,
+  '-xl': $spacing-xl,
+  '-xxl': $spacing-xxl,
+  '-none': 0,
+) !default;
+
+
+
+
+// Generate responsive variant for each of the spacing classes? E.g.:
+//
+//   .u-margin-top-m@tablet
+//   .u-margin-horizontal-none@mobile
+//   .u-padding-xl@desktop
+//
+// Warning: this may generate a lot of extra code.
+
+$responsive-spacing: true !default;
+
+
+
+
+
+// Private mixin to spit out our spacing classes. Optionally we can pass a
+// suffix for class names, and a flag indicating whether or not we want
+// `!important` there. E.g. to create spacing utilities with `-sm` suffix
+// and no `!important`:
+//
+// @include spacing(-sm, false);
+
+@mixin spacing($suffix: null, $important: false) {
+
+  @if ($important == true) {
+    $important: !important;
+  } @elseif ($important == false) {
+    $important: null;
+  } @else {
+    @error "`#{$important}` needs to be `true` or `false`."
+  }
+
+  @each $property-namespace, $property in $spacing-properties {
+
+    @each $direction-namespace, $direction-rules in $spacing-directions {
+
+      @each $size-namespace, $size in $spacing-sizes {
+
+        // Build a class in the format `.u-margin-bottom-large[@<breakpoint>]`
+        .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$suffix} {
+
+          @each $direction in $direction-rules {
+            #{$property}#{$direction}: $size $important;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+
+
+
+
+// The following will genereate a suite of spacing helper classes based on
+// $spacing-directions, $spacing-properties, and $spacing-sizes lists.
+// We'll use these classes in our markup to define spacing for DOM elements:
+//
+// <div class="u-margin-bottom-xs">
+// <div class="u-padding-none">
+
+@include spacing();
+
+
+
+
+
+// Responsive spacing
+// ============================================================================
+
+// Sass map of breakpoints used to generate responsive classes. E.g.:
+//
+// $spacing-breakpoints: (
+//  'tablet': 640px,
+//  'desktop': 1024px,
+//  'wide': 1280px,
+// );
+
+$spacing-breakpoints: $breakpoints !default;
+
+
+// Separator for the breakpoints suffix in the class name, e.g.:
+//
+// <div class="u-padding-xs@mobile">
+
+$spacing-breakpoint-separator: $breakpoint-separator !default;
+
+
+// The below loop will generate responsive spacing helpers for each of our
+// breakpoints defined in the $spacing-breakpoints list, e.g.:
+//
+// <div class="u-margin-bottom-none@mobile">
+// <div class="u-margin-bottom-none@tablet">
+// <div class="u-margin-bottom-none@desktop">
+
+@if ($responsive-spacing == true) {
+
+  @each $bp-name, $bp-value in $spacing-breakpoints {
+
+    @include mq($from: $bp-name) {
+
+      @include spacing(#{$spacing-breakpoint-separator}#{$bp-name});
+
+    }
+
+  }
+
+}
+
+/* stylelint-enable string-quotes */

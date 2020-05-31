@@ -1,0 +1,49 @@
+/* ==========================================================================
+
+   @CONTAINER
+
+   ========================================================================== */
+
+/**
+ * Page-level constraining element.
+ */
+
+$container-width-xs     : 700px  !default;
+$container-width-s      : 800px  !default;
+$container-width-m      : 1200px !default;
+$container-width-l      : 1400px !default;
+$container-width-xl     : 1600px !default;
+
+
+.o-container {
+  margin-right: auto;
+  margin-left: auto;
+  @include cf;
+}
+
+
+
+
+/* Size variants.
+   ========================================================================== */
+
+.o-container--xs {
+  max-width: $container-width-xs;
+}
+
+.o-container--s {
+  max-width: $container-width-s;
+}
+
+.o-container--m {
+  max-width: $container-width-m;
+}
+
+.o-container--l {
+  max-width: $container-width-l;
+}
+
+.o-container--xl {
+  max-width: $container-width-xl;
+}
+

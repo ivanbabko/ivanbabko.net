@@ -1,0 +1,672 @@
+/*! c-hint.css - v2.5.0 - 2017-04-23
+* http://kushagragour.in/lab/c-hint/
+* Copyright (c) 2017 Kushagra Gour */
+
+/*-------------------------------------*	c-hint.css - A CSS tooltip library
+\*-------------------------------------*/
+/**
+ * c-hint.css is a tooltip library made in pure CSS.
+ *
+ * Source: https://github.com/chinchang/c-hint.css
+ * Demo: http://kushagragour.in/lab/c-hint/
+ *
+ */
+/**
+ * source: c-hint-core.scss
+ *
+ * Defines the basic styling for the tooltip.
+ * Each tooltip is made of 2 parts:
+ * 	1) body (:after)
+ * 	2) arrow (:before)
+ *
+ * Classes added:
+ * 	1) c-hint
+ */
+
+[class*="c-hint--"] {
+  position: relative;
+  display: inline-block;
+  /**
+	 * tooltip arrow
+	 */
+  /**
+	 * tooltip body
+	 */ }
+  [class*="c-hint--"]:before, [class*="c-hint--"]:after {
+    position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000000;
+    pointer-events: none;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    transition: 0.3s ease;
+    -webkit-transition-delay: 0ms;
+    -moz-transition-delay: 0ms;
+    transition-delay: 0ms; }
+  [class*="c-hint--"]:hover:before, [class*="c-hint--"]:hover:after {
+    visibility: visible;
+    opacity: 1; }
+  [class*="c-hint--"]:hover:before, [class*="c-hint--"]:hover:after {
+    -webkit-transition-delay: 100ms;
+    -moz-transition-delay: 100ms;
+    transition-delay: 100ms; }
+  [class*="c-hint--"]:before {
+    content: '';
+    position: absolute;
+    background: transparent;
+    border: 6px solid transparent;
+    z-index: 1000001; }
+  [class*="c-hint--"]:after {
+    border-radius: 3px;
+    background: #fff;
+    color: c('black');
+    padding: 8px 10px;
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 12px;
+    white-space: nowrap; }
+  [class*="c-hint--"][aria-label]:after {
+    content: attr(aria-label); }
+  [class*="c-hint--"][data-c-hint]:after {
+    content: attr(data-c-hint); }
+
+[aria-label='']:before, [aria-label='']:after,
+[data-c-hint='']:before,
+[data-c-hint='']:after {
+  display: none !important; }
+
+/**
+ * source: c-hint-position.scss
+ *
+ * Defines the positoning logic for the tooltips.
+ *
+ * Classes added:
+ * 	1) c-hint--top
+ * 	2) c-hint--bottom
+ * 	3) c-hint--left
+ * 	4) c-hint--right
+ */
+/**
+ * set default color for tooltip arrows
+ */
+.c-hint--top-left:before {
+  border-top-color: #fff; }
+
+.c-hint--top-right:before {
+  border-top-color: #fff; }
+
+.c-hint--top:before {
+  border-top-color: hsl(0, 0%, 22%) }
+
+.c-hint--bottom-left:before {
+  border-bottom-color: hsl(0, 0%, 22%) }
+
+.c-hint--bottom-right:before {
+  border-bottom-color: hsl(0, 0%, 22%) }
+
+.c-hint--bottom:before {
+  border-bottom-color: hsl(0, 0%, 22%) }
+
+.c-hint--left:before {
+  border-left-color: #fff; }
+
+.c-hint--right:before {
+  border-right-color: #fff; }
+
+/**
+ * top tooltip
+ */
+
+.c-hint--top:after {
+  background-color: hsl(0, 0%, 22%);
+  color: #fff;
+}
+
+.c-hint--top:before {
+  margin-bottom: -11px; }
+
+.c-hint--top:before, .c-hint--top:after {
+  bottom: 100%;
+  left: 50%; }
+
+.c-hint--top:before {
+  left: calc(50% - 6px); }
+
+.c-hint--top:after {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.c-hint--top:hover:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--top:hover:after {
+  -webkit-transform: translateX(-50%) translateY(-8px);
+  -moz-transform: translateX(-50%) translateY(-8px);
+  transform: translateX(-50%) translateY(-8px); }
+
+/**
+ * bottom tooltip
+ */
+
+.c-hint--bottom:after {
+  background-color: hsl(0, 0%, 22%);
+  color: #fff;
+}
+
+.c-hint--bottom:before {
+  margin-top: -11px; }
+
+.c-hint--bottom:before, .c-hint--bottom:after {
+  top: 100%;
+  left: 50%; }
+
+.c-hint--bottom:before {
+  left: calc(50% - 6px); }
+
+.c-hint--bottom:after {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.c-hint--bottom:hover:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--bottom:hover:after {
+  -webkit-transform: translateX(-50%) translateY(8px);
+  -moz-transform: translateX(-50%) translateY(8px);
+  transform: translateX(-50%) translateY(8px); }
+
+/**
+ * right tooltip
+ */
+.c-hint--right:before {
+  margin-left: -11px;
+  margin-bottom: -6px; }
+
+.c-hint--right:after {
+  margin-bottom: -14px; }
+
+.c-hint--right:before, .c-hint--right:after {
+  left: 100%;
+  bottom: 50%; }
+
+.c-hint--right:hover:before {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px); }
+
+.c-hint--right:hover:after {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px); }
+
+/**
+ * left tooltip
+ */
+.c-hint--left:before {
+  margin-right: -11px;
+  margin-bottom: -6px; }
+
+.c-hint--left:after {
+  margin-bottom: -14px; }
+
+.c-hint--left:before, .c-hint--left:after {
+  right: 100%;
+  bottom: 50%; }
+
+.c-hint--left:hover:before {
+  -webkit-transform: translateX(-8px);
+  -moz-transform: translateX(-8px);
+  transform: translateX(-8px); }
+
+.c-hint--left:hover:after {
+  -webkit-transform: translateX(-8px);
+  -moz-transform: translateX(-8px);
+  transform: translateX(-8px); }
+
+/**
+ * top-left tooltip
+ */
+.c-hint--top-left:before {
+  margin-bottom: -11px; }
+
+.c-hint--top-left:before, .c-hint--top-left:after {
+  bottom: 100%;
+  left: 50%; }
+
+.c-hint--top-left:before {
+  left: calc(50% - 6px); }
+
+.c-hint--top-left:after {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  transform: translateX(-100%); }
+
+.c-hint--top-left:after {
+  margin-left: 12px; }
+
+.c-hint--top-left:hover:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--top-left:hover:after {
+  -webkit-transform: translateX(-100%) translateY(-8px);
+  -moz-transform: translateX(-100%) translateY(-8px);
+  transform: translateX(-100%) translateY(-8px); }
+
+/**
+ * top-right tooltip
+ */
+.c-hint--top-right:before {
+  margin-bottom: -11px; }
+
+.c-hint--top-right:before, .c-hint--top-right:after {
+  bottom: 100%;
+  left: 50%; }
+
+.c-hint--top-right:before {
+  left: calc(50% - 6px); }
+
+.c-hint--top-right:after {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  transform: translateX(0); }
+
+.c-hint--top-right:after {
+  margin-left: -12px; }
+
+.c-hint--top-right:hover:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--top-right:hover:after {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+/**
+ * bottom-left tooltip
+ */
+
+ .c-hint--bottom-left:after {
+  background-color: hsl(0, 0%, 22%);
+  color: #fff;
+}
+
+.c-hint--bottom-left:before {
+  margin-top: -11px; }
+
+.c-hint--bottom-left:before, .c-hint--bottom-left:after {
+  top: 100%;
+  left: 50%; }
+
+.c-hint--bottom-left:before {
+  left: calc(50% - 6px); }
+
+.c-hint--bottom-left:after {
+  -webkit-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  transform: translateX(-100%); }
+
+.c-hint--bottom-left:after {
+  margin-left: 12px; }
+
+.c-hint--bottom-left:hover:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--bottom-left:hover:after {
+  -webkit-transform: translateX(-100%) translateY(8px);
+  -moz-transform: translateX(-100%) translateY(8px);
+  transform: translateX(-100%) translateY(8px); }
+
+/**
+ * bottom-right tooltip
+ */
+
+ .c-hint--bottom-right:after {
+  background-color: hsl(0, 0%, 22%);
+  color: #fff;
+}
+
+.c-hint--bottom-right:before {
+  margin-top: -11px; }
+
+.c-hint--bottom-right:before, .c-hint--bottom-right:after {
+  top: 100%;
+  left: 50%; }
+
+.c-hint--bottom-right:before {
+  left: calc(50% - 6px); }
+
+.c-hint--bottom-right:after {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  transform: translateX(0); }
+
+.c-hint--bottom-right:after {
+  margin-left: -12px; }
+
+.c-hint--bottom-right:hover:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--bottom-right:hover:after {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+/**
+ * source: c-hint-sizes.scss
+ *
+ * Defines width restricted tooltips that can span
+ * across multiple lines.
+ *
+ * Classes added:
+ * 	1) c-hint--small
+ * 	2) c-hint--medium
+ * 	3) c-hint--large
+ *
+ */
+.c-hint--small:after,
+.c-hint--medium:after,
+.c-hint--large:after {
+  white-space: normal;
+  line-height: 1.4em;
+  word-wrap: break-word; }
+
+.c-hint--small:after {
+  width: 80px; }
+
+.c-hint--medium:after {
+  width: 150px; }
+
+.c-hint--large:after {
+  width: 300px; }
+
+/**
+ * source: c-hint-theme.scss
+ *
+ * Defines basic theme for tooltips.
+ *
+ */
+[class*="c-hint--"] {
+  /**
+	 * tooltip body
+	 */ }
+  [class*="c-hint--"]:after {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); }
+
+/**
+ * source: c-hint-color-types.scss
+ *
+ * Contains tooltips of various types based on color differences.
+ *
+ * Classes added:
+ * 	1) c-hint--error
+ * 	2) c-hint--warning
+ * 	3) c-hint--info
+ * 	4) c-hint--success
+ *
+ */
+/**
+ * Error
+ */
+.c-hint--error:after {
+  background-color: #b34e4d;
+  text-shadow: 0 -1px 0px #592726; }
+
+.c-hint--error.c-hint--top-left:before {
+  border-top-color: #b34e4d; }
+
+.c-hint--error.c-hint--top-right:before {
+  border-top-color: #b34e4d; }
+
+.c-hint--error.c-hint--top:before {
+  border-top-color: #b34e4d; }
+
+.c-hint--error.c-hint--bottom-left:before {
+  border-bottom-color: #b34e4d; }
+
+.c-hint--error.c-hint--bottom-right:before {
+  border-bottom-color: #b34e4d; }
+
+.c-hint--error.c-hint--bottom:before {
+  border-bottom-color: #b34e4d; }
+
+.c-hint--error.c-hint--left:before {
+  border-left-color: #b34e4d; }
+
+.c-hint--error.c-hint--right:before {
+  border-right-color: #b34e4d; }
+
+/**
+ * Warning
+ */
+.c-hint--warning:after {
+  background-color: #c09854;
+  text-shadow: 0 -1px 0px #6c5328; }
+
+.c-hint--warning.c-hint--top-left:before {
+  border-top-color: #c09854; }
+
+.c-hint--warning.c-hint--top-right:before {
+  border-top-color: #c09854; }
+
+.c-hint--warning.c-hint--top:before {
+  border-top-color: #c09854; }
+
+.c-hint--warning.c-hint--bottom-left:before {
+  border-bottom-color: #c09854; }
+
+.c-hint--warning.c-hint--bottom-right:before {
+  border-bottom-color: #c09854; }
+
+.c-hint--warning.c-hint--bottom:before {
+  border-bottom-color: #c09854; }
+
+.c-hint--warning.c-hint--left:before {
+  border-left-color: #c09854; }
+
+.c-hint--warning.c-hint--right:before {
+  border-right-color: #c09854; }
+
+/**
+ * Info
+ */
+.c-hint--info:after {
+  background-color: #3986ac;
+  text-shadow: 0 -1px 0px #1a3c4d; }
+
+.c-hint--info.c-hint--top-left:before {
+  border-top-color: #3986ac; }
+
+.c-hint--info.c-hint--top-right:before {
+  border-top-color: #3986ac; }
+
+.c-hint--info.c-hint--top:before {
+  border-top-color: #3986ac; }
+
+.c-hint--info.c-hint--bottom-left:before {
+  border-bottom-color: #3986ac; }
+
+.c-hint--info.c-hint--bottom-right:before {
+  border-bottom-color: #3986ac; }
+
+.c-hint--info.c-hint--bottom:before {
+  border-bottom-color: #3986ac; }
+
+.c-hint--info.c-hint--left:before {
+  border-left-color: #3986ac; }
+
+.c-hint--info.c-hint--right:before {
+  border-right-color: #3986ac; }
+
+/**
+ * Success
+ */
+.c-hint--success:after {
+  background-color: #458746;
+  text-shadow: 0 -1px 0px #1a321a; }
+
+.c-hint--success.c-hint--top-left:before {
+  border-top-color: #458746; }
+
+.c-hint--success.c-hint--top-right:before {
+  border-top-color: #458746; }
+
+.c-hint--success.c-hint--top:before {
+  border-top-color: #458746; }
+
+.c-hint--success.c-hint--bottom-left:before {
+  border-bottom-color: #458746; }
+
+.c-hint--success.c-hint--bottom-right:before {
+  border-bottom-color: #458746; }
+
+.c-hint--success.c-hint--bottom:before {
+  border-bottom-color: #458746; }
+
+.c-hint--success.c-hint--left:before {
+  border-left-color: #458746; }
+
+.c-hint--success.c-hint--right:before {
+  border-right-color: #458746; }
+
+/**
+ * source: c-hint-always.scss
+ *
+ * Defines a persisted tooltip which shows always.
+ *
+ * Classes added:
+ * 	1) c-hint--always
+ *
+ */
+.c-hint--always:after, .c-hint--always:before {
+  opacity: 1;
+  visibility: visible; }
+
+.c-hint--always.c-hint--top:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--always.c-hint--top:after {
+  -webkit-transform: translateX(-50%) translateY(-8px);
+  -moz-transform: translateX(-50%) translateY(-8px);
+  transform: translateX(-50%) translateY(-8px); }
+
+.c-hint--always.c-hint--top-left:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--always.c-hint--top-left:after {
+  -webkit-transform: translateX(-100%) translateY(-8px);
+  -moz-transform: translateX(-100%) translateY(-8px);
+  transform: translateX(-100%) translateY(-8px); }
+
+.c-hint--always.c-hint--top-right:before {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--always.c-hint--top-right:after {
+  -webkit-transform: translateY(-8px);
+  -moz-transform: translateY(-8px);
+  transform: translateY(-8px); }
+
+.c-hint--always.c-hint--bottom:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--always.c-hint--bottom:after {
+  -webkit-transform: translateX(-50%) translateY(8px);
+  -moz-transform: translateX(-50%) translateY(8px);
+  transform: translateX(-50%) translateY(8px); }
+
+.c-hint--always.c-hint--bottom-left:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--always.c-hint--bottom-left:after {
+  -webkit-transform: translateX(-100%) translateY(8px);
+  -moz-transform: translateX(-100%) translateY(8px);
+  transform: translateX(-100%) translateY(8px); }
+
+.c-hint--always.c-hint--bottom-right:before {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--always.c-hint--bottom-right:after {
+  -webkit-transform: translateY(8px);
+  -moz-transform: translateY(8px);
+  transform: translateY(8px); }
+
+.c-hint--always.c-hint--left:before {
+  -webkit-transform: translateX(-8px);
+  -moz-transform: translateX(-8px);
+  transform: translateX(-8px); }
+
+.c-hint--always.c-hint--left:after {
+  -webkit-transform: translateX(-8px);
+  -moz-transform: translateX(-8px);
+  transform: translateX(-8px); }
+
+.c-hint--always.c-hint--right:before {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px); }
+
+.c-hint--always.c-hint--right:after {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  transform: translateX(8px); }
+
+/**
+ * source: c-hint-rounded.scss
+ *
+ * Defines rounded corner tooltips.
+ *
+ * Classes added:
+ * 	1) c-hint--rounded
+ *
+ */
+.c-hint--rounded:after {
+  border-radius: 4px; }
+
+/**
+ * source: c-hint-effects.scss
+ *
+ * Defines various transition effects for the tooltips.
+ *
+ * Classes added:
+ * 	1) c-hint--no-animate
+ * 	2) c-hint--bounce
+ *
+ */
+.c-hint--no-animate:before, .c-hint--no-animate:after {
+  -webkit-transition-duration: 0ms;
+  -moz-transition-duration: 0ms;
+  transition-duration: 0ms; }
+
+.c-hint--bounce:before, .c-hint--bounce:after {
+  -webkit-transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  -moz-transition: opacity 0.3s ease, visibility 0.3s ease, -moz-transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24); }

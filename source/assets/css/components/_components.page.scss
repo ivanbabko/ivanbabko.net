@@ -1,0 +1,97 @@
+/* ==========================================================================
+
+   @PAGE-LEVEL STYLES
+
+   ========================================================================== */
+
+
+
+.c-page {
+  width: 100%;
+  height: 100%;
+
+  @include mq(m) {
+     padding-left:96px;
+  }
+
+}
+
+
+
+
+/* Common elements
+   ========================================================================== */
+
+.c-page__wrapper {
+  position: relative;
+
+  @include mq(m) {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+
+.c-page__header {
+  font-size: fs('h2');
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height:1.15;
+  margin-bottom: $spacing-s;
+}
+
+
+.c-page__description {
+  font-size: fs('h5');
+  margin-bottom: $spacing-m;
+  color: c('black','secondary');
+}
+
+
+
+
+/* Profile page
+   ========================================================================== */
+
+.c-page--profile {
+  overflow-y: auto;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 40%;
+
+  @include mq(m) {
+    // background-image: url('/assets/img/ampersand.png');
+  }
+}
+
+
+
+
+
+
+/* Page with cards (portfolio & lab)
+   ========================================================================== */
+.c-page--cards {
+  background-color: #F4F3F4;
+}
+
+
+
+
+
+/* Article
+   ========================================================================== */
+.c-page--article {
+  //padding-top: 56px;
+  overflow-x:hidden;
+}
+
+
+
+
+
+
+
+
+

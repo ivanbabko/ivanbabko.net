@@ -1,0 +1,30 @@
+# Site settings
+title:        "Ivan Babko"
+description:  "User Experience Designer"
+
+
+# URL configuration
+url:          "http://ivanbabko.net" # the base hostname for the project, e.g. http://domain.com
+baseurl:      ""  # the subpath of the project in production, e.g. /blog
+permalink:    /:categories/:title/ # base url structure for posts
+
+
+# Using temp folders to help Gulp do its job.
+source:       .tmp/source
+destination:  .tmp/build
+
+
+# Include/exclude settings
+exclude:      ["assets"]
+include:      ["_pages"]
+
+
+# Markdown settings
+markdown:     kramdown
+
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag

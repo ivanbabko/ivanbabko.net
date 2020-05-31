@@ -1,0 +1,60 @@
+/* ==========================================================================
+
+   @TOPBAR
+
+   ========================================================================== */
+
+.c-topbar {
+  width: 100%;
+  height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-left: 96px;
+  background-color: c('white');
+  border-bottom: 1px solid #DADADA;
+  z-index: 20;
+  transition: $transition;
+}
+
+
+.c-topbar__btn {
+  display: inline-block;
+  text-align: center;
+  width: 56px;
+  height: 100%;
+  line-height: 56px;
+  transition: $transition;
+
+  &:hover {
+    background-color: #fafafa;
+  }
+
+}
+
+.c-topbar__icon {
+  fill: #777;
+  transition: $transition;
+
+  .c-topbar__btn:hover & {
+    fill: #999;
+  }
+
+}
+
+.c-topbar__btn--prev,
+.c-topbar__btn--next {
+  border-right: 1px solid #DADADA;
+  float: left;
+}
+
+.c-topbar__btn--close {
+  border-left: 1px solid #DADADA;
+  float: right;
+}
+
+
+.c-topbar--up {
+  top: -56px;
+}
+

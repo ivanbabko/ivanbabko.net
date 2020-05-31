@@ -1,0 +1,35 @@
+---
+layout: default
+permalink: /video/
+classes: ["c-page--cards"]
+title: "Video"
+title_tech: "Video"
+description: "Some videos I produced over the years"
+---
+
+<!-- start /_pages/page--design.html -->
+
+<div class="o-container  u-padding-l  u-padding-bottom-none">
+
+  <div class="o-grid  o-grid--l">
+
+    <div class="o-grid__item">
+      <h1 class="c-page__header">{{ page.title }}</h1>
+      <p class="c-page__description">{{ page.description }}</p>
+    </div>
+
+    {% for post in site.categories['video'] %}
+      <div class="o-grid__item  u-1/2@m  u-1/3@xl">
+        {% include card.html %}
+      </div> <!-- /.o-grid__item -->
+    {% endfor %}
+
+    <div class="o-grid__item  u-text-center">
+      <a class="c-btn  u-margin-top-m  u-margin-bottom-xl" href="http://www.ivanbabko.com" target="_blank">View my other videos <svg class="o-icon  "><use xlink:href="#external"></use></svg></a>
+    </div> <!-- /.o-grid__item -->
+
+  </div> <!-- /.o-grid -->
+
+</div> <!-- /.o-container -->
+
+<!-- end /_pages/page--design.html -->

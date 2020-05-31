@@ -1,0 +1,144 @@
+/* ==========================================================================
+
+   @SIDEBAR
+
+   ========================================================================== */
+
+
+
+
+.c-sidebar {
+  position: fixed;
+  top: 0;
+  left:-96px;
+  width: 96px;
+  height: 100%;
+  background-color: c('black');
+  text-align: center;
+  z-index: z('sidebar');
+
+  @include mq(m) {
+    left:0;
+  }
+
+}
+
+
+
+
+
+
+/* Site logo
+   ========================================================================== */
+
+.c-logo {
+  display: block;
+  height: 106px;
+  line-height: 106px;
+}
+
+
+.c-logo__symbol {
+  width: 23px;
+  height: 21px;
+  fill: #fff;
+
+  .c-logo__link:hover & {
+    //fill: c('accent');
+  }
+
+}
+
+
+
+
+/* Main navigation
+   ========================================================================== */
+
+.c-nav--main__link {
+  display: block;
+  padding: $spacing 0;
+  color: c('white');
+
+  &:hover {
+    background-color: #3f4d5f;
+    color: c('white');
+  }
+
+  .is-current & {
+    background-color: c('accent');
+    color: c('white');
+    cursor: default;
+  }
+
+}
+
+
+.c-nav--main__icon {
+  width: 26px;
+  height: 32px;
+  fill: c('white','secondary');
+  margin-bottom: $spacing-s;
+
+  .is-current & {
+    fill: c('white');
+  }
+
+}
+
+
+.c-nav--main__text {
+  display: block;
+  font-size: fs('micro');
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+
+
+
+
+/* Social navigation
+   ========================================================================== */
+
+.c-nav--social {
+  width: 100%;
+  position: absolute;
+  bottom: $spacing;
+}
+
+.c-nav--social__item {
+  padding-bottom: $spacing-m;
+}
+
+
+.c-nav--social__icon {
+  width: 24px;
+  height: 24px;
+  fill: c('white','secondary');
+  transition: $transition;
+
+  .c-nav--social__link:hover & {
+    fill: c('white');
+  }
+
+  .c-nav--social__link:hover &.booking {
+    fill: c('social','booking');
+  }
+
+  .c-nav--social__link:hover &.dribbble {
+    fill: c('social','dribbble');
+  }
+
+  .c-nav--social__link:hover &.github {
+    fill: c('white');
+  }
+
+  .c-nav--social__link:hover &.linkedin {
+    fill: c('social','vimeo');
+  }
+
+}
+

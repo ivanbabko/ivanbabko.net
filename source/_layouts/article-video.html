@@ -1,0 +1,85 @@
+---
+layout: default
+---
+
+<!-- start /_layouts/article-video.html -->
+
+
+
+<!-- PAGE PRELOADER -->
+<div class="c-preloader  js-preloader">
+  {% include loading.html color="dark" %}
+</div> <!-- /.c-preloader -->
+
+
+
+<!-- HEADLINE -->
+<header class="c-headline">
+  <h1 class="c-headline__title">{{ page.title }}</h1>
+  <h2 class="c-headline__description">{{ page.description }}</h2>
+</header> <!-- /.c-headline -->
+
+
+
+<!-- ARTICLE CONTENT -->
+<article class="c-article">
+
+  <figure class="c-figure  c-figure--fullwidth  u-margin-bottom-xl@s">
+    <video
+      poster="{{ page.thumbnail }}"
+      class="js-player"
+      data-plyr-config='{
+        "loadSprite": false,
+        "controls": ["play-large", "play", "progress", "current-time", "mute", "volume", "fullscreen"],
+        "resetOnEnd": true
+      }'
+      playsinline
+      controls
+      >
+      <source src="{{ page.video }}.mp4" type="video/mp4">
+      <!-- <source src="{{ page.video }}.webm" type="video/webm"> -->
+    </video>
+  </figure>
+
+{{ content }}
+
+</article> <!-- /.c-article -->
+
+
+
+<!-- NEXT VIDEO -->
+{% if page.next_in_category %}
+
+  <section class="c-next">
+    <a class="c-next__link" href="{{ page.next_in_category.url }}">
+      <div class="c-next__text">
+        <h4 class="c-next__caption">Coming up next</h4>
+        <h2 class="c-next__title">{{ page.next_in_category.title }}</h2>
+        <h3 class="c-next__description">{{ page.next_in_category.description }}</h3>
+      </div> <!-- /.c-next__text -->
+      <div class="c-next__overlay"></div>
+      <img class="c-next__image  lazyload" data-src="{{ page.next_in_category.thumbnail }}">
+    </a>
+  </section> <!-- /.c-next -->
+
+{% else if ! page.next_in_category %}
+
+  {% for post in site.categories['video'] limit:1 %}
+     <section class="c-next">
+      <a class="c-next__link" href="{{ post.url }}">
+        <div class="c-next__text">
+          <h4 class="c-next__caption">Coming up next</h4>
+          <h2 class="c-next__title">{{ post.title }}</h2>
+          <h3 class="c-next__description">{{ post.description }}</h3>
+        </div> <!-- /.c-next__text -->
+        <div class="c-next__overlay"></div>
+        <img class="c-next__image  lazyload" data-src="{{ post.thumbnail }}">
+      </a>
+    </section> <!-- /.c-next -->
+  {% endfor %}
+
+{% endif %}
+
+
+
+<!-- end /_layouts/article-video.html -->

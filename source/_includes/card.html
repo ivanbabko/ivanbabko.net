@@ -1,0 +1,43 @@
+<!-- start /_includes/card.html -->
+
+<div class="c-card  {% if post.categories[0] == 'design' %}c-card--design{% else if post.categories[0] == 'video' %}c-card--video{% endif %}">
+
+  <a class="c-card__link" href="{% if post.location %} {{ post.location }} {% else %} {{ post.url }} {% endif %}" {% if post.location %} target="_blank" {% endif %}>
+
+    <div class="c-card__hero" {% if post.color %}style="background-color: {{ post.color }}"{% endif %}>
+
+      {% include loading.html color="light" %}
+
+      <div class="c-card__image  lazyload" data-bg="{{ post.thumbnail }}"></div>
+
+    </div> <!-- /.c-card__hero -->
+
+    <div class="c-card__body">
+
+      <h3 class="c-card__caption">{{ post.type }}</h3>
+
+      <h2 class="c-card__title">
+
+        {{ post.title }}
+
+        {% if post.location %}
+          <svg class="o-icon  c-card__icon"><use xlink:href="#external"></use></svg>
+        {% endif %}
+
+      </h2>
+
+      {% if post.description %}
+        <p class="c-card__description">{{ post.description }}</p>
+      {% endif %}
+
+      {% for tag in post.tags %}
+        <span class="c-card__tag">{{ tag }}</span>
+      {% endfor %}
+
+    </div> <!-- /.c-card__body -->
+
+  </a> <!-- /.c-card__link -->
+
+</div> <!-- /.c-card -->
+
+<!-- end /_includes/card.html -->

@@ -1,0 +1,27 @@
+/* ==========================================================================
+
+   @LOADING SPINNER
+
+   ========================================================================== */
+
+.c-loading {
+  position: absolute;
+  z-index: z('base');
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.c-loading__spinner {
+  width: 48px;
+  height: 48px;
+}
+
+.c-loading__spinner--light {
+  fill: rgba(255,255,255,1);
+}
+
+.c-loading__spinner--dark {
+  fill: rgba(0,0,0,0.3);
+}
