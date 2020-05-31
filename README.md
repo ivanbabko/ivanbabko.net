@@ -3,6 +3,6 @@ This is a source code of my UX design portfolio http://ivanbabko.net. The site i
 - [Goodrocket CSS](https://github.com/ivanbabko/goodrocket-css) - a sass-powered, mobile first, modular CSS bolierplate
 
 <a href="http://ivanbabko.net">
-  <img src=".hero.png" alt="www.ivanbabko.net"/>
+  <img src=".hero.jpg" alt="www.ivanbabko.net"/>
 </a>
 
