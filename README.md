@@ -1,6 +1,6 @@
-### This is a source code of my UX design portfolio www.ivanbabko.net. 
+**This is a source code of my UX design portfolio www.ivanbabko.net.**
 
-The site is powered by two my other projects:
+It's powered by my two other projects:
 - [Goodrocket Jekyll](https://github.com/ivanbabko/goodrocket-jekyll) - a web dev starting kit based on Jekyll and Gulp
 - [Goodrocket CSS](https://github.com/ivanbabko/goodrocket-css) - a sass-powered, mobile first, modular CSS bolierplate
 
